@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            text-align: center;
+            margin: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #333;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+    <body>
+        <h1>Search a movie by genre</h1>
+        <form action="/" method="POST">
+            <label for="genre_select">Select Genre:</label>
+            <select name="genre" id="genre_select">
+                <option value="">All Genres</option>
+                <option value="1">Adventure</option>
+                <option value="2">Animation</option>
+                <option value="3">Children</option>
+                <option value="4">Comedy</option>
+                <option value="5">Fantasy</option>
+                <option value="6">Romance</option>
+                <option value="7">Drama</option>
+                <option value="8">Action</option>
+                <option value="9">Crime</option>
+                <option value="10">Thriller</option>
+                <option value="11">Horror</option>
+                <option value="12">Mystery</option>
+                <option value="13">Sci-Fi</option>
+                <option value="14">War</option>
+                <option value="15">Musical</option>
+                <option value="16">Documentary</option>
+                <option value="17">IMAX</option>
+                <option value="18">Western</option>
+                <option value="19">Film-Noir</option>
+            </select>
+            <input type="submit" value="Filter">
+        </form>
+        <table>
+            <tr>
+                <th>Movie Title</th>
+                <th>Genre</th>
+                <th>Year</th>
+            </tr>
+            {% for movie in movies %}
+                <tr>
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.genre_name }}</td>
+                    <td>{{ movie.year }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </body>
+</body>
+</html>
